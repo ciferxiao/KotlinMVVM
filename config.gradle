@@ -1,0 +1,134 @@
+import com.sun.xml.internal.bind.v2.TODO
+
+ext {
+    //TODO 模块开关  isModule = true 模块单独运行   false模块全部集成到APP中
+    isModule = false
+
+    /**
+     * 项目基础版本信息
+     */
+    android = [
+            applicationId    : "com.ggh.blinddate", //包名，根据项目修改
+            compileSdkVersion: 30,                  //编译SDK的版本
+            buildToolsVersion: "30.0.0",            //构建工作的SDK版本号
+            minSdkVersion    : 23,                  //最低支持的Android版本
+            targetSdkVersion : 30,                  //默认适配的版本
+            versionCode      : 1,                   //APK版本号
+            versionName      : "1.0.1"              //版本名称    APK版本更新可修改
+    ]
+
+    /**
+     * 第三方版本控制
+     */
+    versions = [
+            lifecycle           : "2.1.0-alpha02",
+            roomVersion         : "2.2.5",
+            archLifecycleVersion: "2.2.0",
+            coreTestingVersion  : "2.1.0",
+            materialVersion     : "1.1.0",
+            coroutines          : "1.3.1",
+            koinVersion         : "2.0.1",
+            ankoVersion         : "0.10.8",
+            okhttpVersion       : "3.12.0",
+            retrofitVersion     : "2.9.0",
+    ]
+
+    /**
+     * 这里添加常用的第三方依赖
+     */
+    dependencies = [
+            "appcompat"              : "androidx.appcompat:appcompat:1.2.0-alpha01",
+            "constraintlayout"       : "androidx.constraintlayout:constraintlayout:2.0.0-beta8",
+            "runner"                 : "androidx.test:runner:1.2.0",
+            "core"                   : "androidx.test.espresso:espresso-core:3.2.0",
+            "ktxCore"                : "androidx.core:core-ktx:1.3.1",
+            "testJunit"              : "androidx.test.ext:junit:1.1.1",
+            "junit"                  : "junit:junit:4.12",
+
+            //方法超出解决方案
+            "multidex"               : "androidx.multidex:multidex:2.0.1",
+            //Design 库
+            "design"                 : "com.google.android.material:material:1.2.0-alpha03",
+            //RecyclerView
+            "recyclerview"           : "androidx.recyclerview:recyclerview:1.0.0",
+            //TODO https://github.com/alibaba/fastjson
+            "alijson"                : "com.alibaba:fastjson:1.2.58",
+            "alijsonReflect"         : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
+            //Gson 解析
+            //"gson"                   : "com.google.code.gson:gson:2.8.5",
+            //屏幕适配方案
+            "autosize"               : "me.jessyan:autosize:1.1.2",
+            //  TODO Banner轮播 https://github.com/youth5201314/banner
+            "banner"                 : "com.youth.banner:banner:2.0.8",
+            //富文本解析
+            "richtext"               : "com.zzhoujay.richtext:richtext:2.4.7",
+            //二维码
+            "zxing"                  : "com.google.zxing:core:3.3.2",
+            //图片缓存
+            "glide"                  : "com.github.bumptech.glide:glide:4.11.0",
+//            "glideCompiler"            : "com.github.bumptech.glide:compiler:4.11.0",
+            "glideOkHttp"            : "com.github.bumptech.glide:okhttp3-integration:4.0.0",
+            //TODO  事件分发 https://github.com/greenrobot/EventBus
+            "eventbus"               : "org.greenrobot:eventbus:3.1.1",
+            // TODO 图片选择器  https://github.com/LuckSiege/PictureSelector
+            "pictureSelector"        : "com.github.LuckSiege.PictureSelector:picture_library:v2.4.6",
+            //TODO 条件选择器  https://github.com/Bigkoo/Android-PickerView
+            "pickerView"             : "com.contrarywind:Android-PickerView:4.1.8",
+            "roundedimageview"       : "com.makeramen:roundedimageview:2.3.0",
+            //第三方刷新框架
+            "smartRefreshLayout"     : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.2",
+            "smartRefreshHeader"     : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.2",
+            //生命周期的监听使用
+            "lifecycleRuntime"       : "android.arch.lifecycle:runtime:1.1.1",
+            //ViewModelProviders   添加依赖
+            "lifecycleExtensions"    : "android.arch.lifecycle:extensions:1.1.1",
+            "lifecycleJava8"         : "android.arch.lifecycle:common-java8:1.1.1",
+            "paging"                 : "androidx.paging:paging-runtime-ktx:2.1.2",
+
+            //retrofit
+            "okhttp"                 : "com.squareup.okhttp3:okhttp:${versions.okhttpVersion}",
+            "okhttpInterceptor"      : "com.squareup.okhttp3:logging-interceptor:${versions.okhttpVersion}",
+            "retrofit"               : "com.squareup.retrofit2:retrofit:${versions.retrofitVersion}",
+            //"retrofitgson"           : "com.squareup.retrofit2:converter-gson:${versions.retrofitVersion}",
+            "retrofitAdapter"        : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofitVersion}",
+
+            //路由框架
+            //TODO 阿里路由 ARouter GitHub https://github.com/alibaba/ARouter/tree/master
+            "arouter-api"            : "com.alibaba:arouter-api:1.5.0",
+            "arouter-compiler"       : "com.alibaba:arouter-compiler:1.2.2",
+
+            //TODO 视频缓存  implementation 'com.danikula:videocache:2.7.1'
+            "videoCache"             : "com.danikula:videocache:2.7.1",
+            //网页加载
+            "agentweb"               : "com.just.agentweb:agentweb:4.1.3",
+            //viewpager2
+            "viewpager2"             : "androidx.viewpager2:viewpager2:1.0.0",
+            //TODO   Room
+//            "roomRuntime"              : "androidx.room:room-runtime:${versions.roomVersion}",
+//            "roomKtx"                  : "androidx.room:room-ktx:${versions.roomVersion}",
+//            "roomCompiler"             : "androidx.room:room-compiler:${versions.roomVersion}",
+//            "roomTesting"              : "androidx.room:room-testing:${versions.roomVersion}",
+            //TODO: 依赖注入 Koin
+            "koin-scope"             : "org.koin:koin-androidx-scope:${versions.koinVersion}",
+            "koin-viewmodel"         : "org.koin:koin-androidx-viewmodel:${versions.koinVersion}",
+            //Kotlin
+            "kotlin-jdk"             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            "kotlin-extensions"      : "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$kotlin_version",
+            "kotlin-anko-sdk"        : "org.jetbrains.anko:anko-sdk25:${versions.ankoVersion}",
+            "kotlin-anko-appcompat"  : "org.jetbrains.anko:anko-appcompat-v7:${versions.ankoVersion}",
+            //TODO: lifecycle
+            "lifecycle-extensions"   : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}",
+            "lifecycle-viewmodel-ktx": "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+            "lifecycle-livedata-ktx" : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}",
+            //TODO: 友盟，友盟统计相关    OAID目前为目前国内市场主流的Android Q设备标识
+            "umeng-common"           : "com.umeng.umsdk:common:9.1.0",
+            //微信支付
+            "wechat-pay"           : "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+",
+
+            //xiao add
+            //"basequickadpter" : "'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'"
+    ]
+
+    libraries = dependencies.values()
+
+}

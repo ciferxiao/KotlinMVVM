@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ggh.model_mine">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".MineApp"
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true">
+
+    </application>
+
+</manifest>

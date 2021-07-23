@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--    滑动切换    -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/main_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/main_user_tab_group"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--  底部导航按钮  -->
+    <com.ggh.mainlibrary.widget.TabButtonGroup
+        android:id="@+id/main_user_tab_group"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.ggh.mainlibrary.widget.TabButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tbn_checked="true"
+            app:tbn_icon_size="24dp"
+            app:tbn_selected_icon="@drawable/icon_tab_home_selected"
+            app:tbn_text_color="#333"
+            app:tbn_text_select_color="@color/common_app_color"
+            app:tbn_text_size="14sp"
+            app:tbn_tip="@string/main_home"
+            app:tbn_unselected_icon="@drawable/icon_tab_home_default" />
+
+        <com.ggh.mainlibrary.widget.TabButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            app:tbn_checked="false"
+            app:tbn_icon_size="24dp"
+            app:tbn_selected_icon="@drawable/icon_tab_message_selected"
+            app:tbn_text_color="#333"
+            app:tbn_text_select_color="@color/common_app_color"
+            app:tbn_text_size="14sp"
+            app:tbn_tip="@string/main_message"
+            app:tbn_unselected_icon="@drawable/icon_tab_message_default" />
+
+        <com.ggh.mainlibrary.widget.TabButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            app:tbn_checked="false"
+            app:tbn_icon_size="24dp"
+            app:tbn_selected_icon="@drawable/icon_tab_cart_selected"
+            app:tbn_text_color="#333"
+            app:tbn_text_select_color="@color/common_app_color"
+            app:tbn_text_size="14sp"
+            app:tbn_tip="@string/main_cart"
+            app:tbn_unselected_icon="@drawable/icon_tab_cart_default" />
+
+        <com.ggh.mainlibrary.widget.TabButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tbn_checked="false"
+            app:tbn_icon_size="24dp"
+            app:tbn_selected_icon="@drawable/icon_tab_mine_selected"
+            app:tbn_text_color="#333"
+            app:tbn_text_select_color="@color/common_app_color"
+            app:tbn_text_size="14sp"
+            app:tbn_tip="@string/main_mine"
+            app:tbn_unselected_icon="@drawable/icon_tab_mine_default" />
+    </com.ggh.mainlibrary.widget.TabButtonGroup>
+
+    <!--  中间按钮  -->
+    <CheckBox
+        android:id="@+id/main_user_push"
+        android:layout_width="60dp"
+        android:layout_height="75dp"
+        android:button="@null"
+        android:drawableTop="@drawable/icon_tab_push"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:text="@string/main_push"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

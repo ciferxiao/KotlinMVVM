@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="NoViewPager">
+        <attr name="canScroll" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TabButton">
+        <!--    选中图片    -->
+        <attr name="tbn_selected_icon" format="reference" />
+        <!--     未选中图标   -->
+        <attr name="tbn_unselected_icon" format="reference" />
+        <!--     提示文字   -->
+        <attr name="tbn_tip" format="string" />
+        <!--    图片大小    -->
+        <attr name="tbn_icon_size" format="dimension" />
+        <!--    文字大小    -->
+        <attr name="tbn_text_size" format="dimension" />
+        <!--    文字颜色   默认    -->
+        <attr name="tbn_text_color" format="color" />
+        <!--    文字颜色    选中    -->
+        <attr name="tbn_text_select_color" format="color" />
+        <!--    是否选中    -->
+        <attr name="tbn_checked" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawableTextView">
+        <attr name="dt_top_width" format="dimension" />
+        <attr name="dt_top_height" format="dimension" />
+        <attr name="dt_left_width" format="dimension" />
+        <attr name="dt_left_height" format="dimension" />
+        <attr name="dt_right_width" format="dimension" />
+        <attr name="dt_right_height" format="dimension" />
+        <attr name="dt_bottom_width" format="dimension" />
+        <attr name="dt_bottom_height" format="dimension" />
+        <attr name="dt_top_drawable" format="reference" />
+        <attr name="dt_left_drawable" format="reference" />
+        <attr name="dt_right_drawable" format="reference" />
+        <attr name="dt_bottom_drawable" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="MyLinearLayout">
+        <attr name="mll_height_percent" format="float"/>
+    </declare-styleable>
+</resources>

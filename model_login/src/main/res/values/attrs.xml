@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SettingTitleView">
+        <attr name="settingName" format="string"/>
+        <attr name="settingExtra" format="string"/>
+        <attr name="settingExtraShow" format="boolean"/>
+        <attr name="settingExtraDraw" format="reference"/>
+        <attr name="settingBack" format="reference"/>
+        <attr name="settingBackShow" format="boolean"/>
+        <attr name="settinglineShow" format="boolean"/>
+        <attr name="settingTitleRight" format="reference"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="MateriaTextView">
+
+        <attr name="isOut" format="boolean"/>
+        <attr name="isBold" format="boolean"/>
+
+    </declare-styleable>
+
+</resources>

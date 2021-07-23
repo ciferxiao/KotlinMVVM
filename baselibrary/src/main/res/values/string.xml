@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="connect_error">网络连接失败,请检查网络</string>
+    <string name="connect_timeout">连接超时,请稍后再试</string>
+    <string name="bad_network">服务器异常</string>
+    <string name="parse_error">解析服务器响应数据失败</string>
+    <string name="unknown_error">未知错误</string>
+    <string name="response_return_error">服务器返回数据失败</string>
+
+    <string name="parameters_exception">Parameter exception</string>
+    <string name="verify_code_error">输入验证码有误</string>
+    <string name="verify_code_expired">验证码已过期</string>
+    <string name="not_register">该账户还未注册</string>
+    <string name="wrong_pwd_username">用户名或密码错误</string>
+    <string name="user_registered">该账户已存在</string>
+    <string name="wrong_password">密码错误</string>
+    <string name="remote_login">您的账号已在其它设备上登录，如非本人操作，请及时修改密码！</string>
+    <string name="invalid_status">登录状态已失效，请重新登录</string>
+
+    <string name="msg_empty">暂无数据</string>
+
+
+    <string name="app_wx_share_message1">分享成功</string>
+    <string name="app_wx_share_message2">分享失败</string>
+    <string name="app_wx_share_message3">分享被拒绝</string>
+    <string name="app_wx_share_message4">发送返回</string>
+    <string name="app_wx_login_message1">登录失败</string>
+    <string name="app_wx_login_message2">登录被拒绝</string>
+
+    <!-- WXPayEntryActivity -->
+    <string name="pay_result_tip">这个界面用于显示第三方app通过微信支付的结果</string>
+    <string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+
+    <string name="retry">重新加载</string>
+    <string name="loading">加载中…</string>
+    <string name="title_err">未知标题</string>
+    <string name="web_page_err">网页 %s 加载失败 o(╥﹏╥)o</string>
+    <string name="no_data">暂无数据 o(╥﹏╥)o \n 点击屏幕重新加载</string>
+    <string name="error_loading">加载失败 o(╥﹏╥)o \n 点击屏幕重新加载</string>
+
+    <string name="exit_hint">再按一次退出</string>
+    <string name="network_error">网络连接不可用,请检查网络!</string>
+    <string name="business_error">业务处理失败,后台未返回具体原因!</string>
+
+    <string name="login">登录</string>
+</resources>

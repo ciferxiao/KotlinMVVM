@@ -1,0 +1,135 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'  //kapt3插件
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+
+android {
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    signingConfigs {
+        release {
+            keyAlias 'kotlinmvvm'
+            keyPassword 'kotlinmvvm'
+            storeFile file('../kotlinmvvm.jks')
+            storePassword 'kotlinmvvm'
+        }
+    }
+
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+
+        //极光推送配置
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.ggh.userstore",
+                JPUSH_APPKEY : "cfb9d7893c3b0f781f34c70c", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+/*
+    flavorDimensions "a"
+    productFlavors{
+        IP_test{
+            dimension "a"
+            buildConfigField("String","server",'"test"')
+        }
+        IP_inner{
+            dimension "a"
+            buildConfigField("String","server",'"inner"')
+        }
+        IP_product{
+            dimension "a"
+            buildConfigField("String","server",'"product"')
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->  // each 改为 all
+            def flavor = variant.productFlavors[0].name
+            def fileName
+            if('IP_test'.equals(flavor)){
+                fileName = "LeapCollect_${variant.versionName}-test.apk"
+            }else if('IP_inner'.equals(flavor)){
+                fileName = "LeapCollect_${variant.versionName}-inner.apk"
+            }else{
+                fileName = "LeapCollect_${variant.versionName}-product.apk"
+            }
+
+            def outFile = output.outputFile
+            if (outFile != null && outFile.name.endsWith('.apk')) {
+                outputFileName = fileName  //  output.outputFile 改为 outputFileName
+            }
+        }
+    }*/
+
+
+    //配置使用java8编译
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    ndkVersion '21.1.6352462'
+
+    //统一资源前缀，规范资源引用
+//    resourcePrefix "app_"
+}
+
+repositories {
+    flatDir {
+        dirs 'libs', '../libs'
+    }
+}
+
+dependencies {
+    //组件依赖基础库
+    api project(':library_main')
+    api project(':model_login')
+    implementation 'com.github.soulqw:SoulPermission:1.3.1'
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+    configurations {
+        //这里要排除到这个包，这个包会与 com.google.guava 冲突，导致编译不过
+        all*.exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
+
+}

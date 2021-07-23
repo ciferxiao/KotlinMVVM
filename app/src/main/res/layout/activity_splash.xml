@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lly_bottom"
+
+        android:background="@mipmap/splash"
+        android:scaleType="fitXY" />
+
+    <!--   高清华为  用  360dp  和  268dp  -->
+    <!--   其他手机  用  280dp  和  218dp  -->
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="360dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="@mipmap/splash_write" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/mb_splash_start"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="268dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="@color/write"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:paddingTop="@dimen/dp_70"-->
+
+        <!--android:text="@string/splash_start"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="@dimen/dp_30"-->
+        <!--android:textStyle="bold" />-->
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/splash_write" />
+
+    <LinearLayout
+        android:id="@+id/lly_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="218dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/write"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/dp_70"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mb_splash_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/write"
+            android:gravity="center_horizontal"
+
+            android:text="welcome !"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_26"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="数据采集系统"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_20"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
