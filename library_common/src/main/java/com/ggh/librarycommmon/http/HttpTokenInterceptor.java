@@ -18,9 +18,6 @@ import okio.Buffer;
 import okio.BufferedSource;
 
 /**
- * 公司：江苏刚刚好网络科技有限公司
- * 作者：Android 土三七
- * 文件名：HttpHeaderInterceptor
  * 创建时间：2020/7/14
  * 功能描述： 带有请求头的拦截器
  */

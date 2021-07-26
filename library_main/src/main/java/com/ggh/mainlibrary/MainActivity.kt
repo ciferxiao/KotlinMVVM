@@ -1,5 +1,10 @@
 package com.ggh.mainlibrary
 
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
+import android.provider.Settings
 import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -18,6 +23,7 @@ import java.util.ArrayList
 
 @Route(path = ARouterConstant.PATH_MAIN)
 class MainActivity : BaseActivity(R.layout.activity_main) {
+
 
     private val fragmentList: MutableList<Fragment> = ArrayList()
     //业务逻辑
@@ -50,7 +56,6 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
             setUserInputEnabled(false)
         }
     }
-
 
     private var lastTime: Long = 0
     private val intervalTime = 1000 * 2.toLong()

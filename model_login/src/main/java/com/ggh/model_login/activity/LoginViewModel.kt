@@ -1,5 +1,7 @@
 package com.ggh.model_login.activity
 
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ggh.baselibrary.mvvm.BaseViewModel
@@ -11,13 +13,18 @@ class LoginViewModel : BaseViewModel() {
 
     var accountBean = MutableLiveData<AccountBean>()
 
-    fun login() {
+    fun getAccountBean(name: String, pwd: String, qrCode: String): LiveData<AccountBean> {
+        //login(name, pwd, qrCode)
+        Log.d("xiao111", " accountBean $accountBean")
+        return accountBean
+    }
+
+    fun login(name: String, pwd: String, qrCode: String) {
         AccountManager.getInstance().login(
-            "", "", ""
+            name, "123456", qrCode
         ) {
             it.let {
                 accountBean.value = it
-
             }
         }
 

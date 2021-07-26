@@ -4,17 +4,18 @@ import android.graphics.Color
 import android.media.MediaPlayer
 import android.net.Uri
 import android.text.TextUtils
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.observe
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
 import com.ggh.baselibrary.base.activity.BaseDBActivity
 import com.ggh.baselibrary.ext.froward
+import com.ggh.baselibrary.utils.ToastUtil
 import com.ggh.librarycommmon.constant.ARouterConstant
 import com.ggh.model_login.R
-import com.ggh.model_login.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -27,9 +28,11 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : BaseDBActivity<ViewDataBinding>(R.layout.activity_login) {
 
     private var isPrepared = false
-    private var mFrom : String? = null
+    private var mFrom: String? = null
+    lateinit var model: LoginViewModel
 
     override fun main() {
+        model = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         initData()
 
         video.let {
@@ -51,11 +54,11 @@ class LoginActivity : BaseDBActivity<ViewDataBinding>(R.layout.activity_login) {
                 it.isLooping = true
             }
 
-            it.setOnErrorListener(object :MediaPlayer.OnErrorListener{
+            it.setOnErrorListener(object : MediaPlayer.OnErrorListener {
                 override fun onError(mp: MediaPlayer?, what: Int, extra: Int): Boolean {
                     it.visibility = View.GONE
                     scroll.visibility = View.VISIBLE
-                    scroll.setOnTouchListener(object : View.OnTouchListener{
+                    scroll.setOnTouchListener(object : View.OnTouchListener {
                         override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                             return true
                         }
@@ -72,33 +75,44 @@ class LoginActivity : BaseDBActivity<ViewDataBinding>(R.layout.activity_login) {
 
     private fun initData() {
         mFrom = intent.getStringExtra("from")
-        if(TextUtils.isEmpty(mFrom)){
+        if (TextUtils.isEmpty(mFrom)) {
             return
         }
+
+
     }
 
-    fun initListener(){
+    fun initListener() {
         mb_login.setOnClickListener {
+            /*if(et_veri.text.length < 6){
+                ToastUtil.show("23333333")
+                return@setOnClickListener
+            }*/
+            model.getAccountBean("13661610000","123456",et_veri.text.toString()).observe(this) { accountBean ->
+                Log.d("xiao111", " accountBean $accountBean")
+            }
+
             ARouterConstant.PATH_MAIN.froward()
+
         }
     }
 
     override fun onResume() {
         super.onResume()
-        if(video  == null){
+        if (video == null) {
             return
         }
-        if(isPrepared && ! video.isPlaying){
+        if (isPrepared && !video.isPlaying) {
             video.start()
         }
     }
 
     override fun onPause() {
         super.onPause()
-        if(video  == null){
+        if (video == null) {
             return
         }
-        if(isPrepared && !video.isPlaying){
+        if (isPrepared && !video.isPlaying) {
             video.pause()
         }
     }

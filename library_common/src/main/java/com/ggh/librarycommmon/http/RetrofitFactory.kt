@@ -50,6 +50,7 @@ class RetrofitFactory private constructor() {
             chain.proceed(request)
         }
 
+
         //Retrofit实例化
         retrofit = Retrofit.Builder()
             .baseUrl(url)
