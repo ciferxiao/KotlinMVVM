@@ -31,6 +31,8 @@ class SplashActivity : BaseActivity(R.layout.activity_splash) {
                 })
 
         InitTools.get().initVersion()
+        InitTools.get().initSDK()
+
         iv_icon.post { AnimateUtil.loadXmlAniSet(iv_icon, R.anim.splash,this)}
 
 

@@ -126,7 +126,8 @@ ext {
             "wechat-pay"           : "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+",
 
             //xiao add
-            //"basequickadpter" : "'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'"
+            "android-motion"        :"com.google.android.material:material:1.4.0-alpha01",
+            "basequickadpter"       :"com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50"
     ]
 
     libraries = dependencies.values()

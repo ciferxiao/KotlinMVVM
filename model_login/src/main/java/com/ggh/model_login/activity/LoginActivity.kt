@@ -6,7 +6,9 @@ import android.net.Uri
 import android.text.TextUtils
 import android.util.Log
 import android.view.MotionEvent
+import android.view.TextureView
 import android.view.View
+import android.widget.TextView
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
@@ -31,8 +33,17 @@ class LoginActivity : BaseDBActivity<ViewDataBinding>(R.layout.activity_login) {
     private var mFrom: String? = null
     lateinit var model: LoginViewModel
 
+    public inline fun<T,R> T.let(block:(T) ->R):R = block(this)
+
+
     override fun main() {
         model = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        model.accountBean.observe(this) {
+            it?.let {//表示accountBean不为空时进行
+                Log.d("xiao111"," it $it")
+                ARouterConstant.PATH_MAIN.froward()
+            }
+        }
         initData()
 
         video.let {
@@ -49,6 +60,7 @@ class LoginActivity : BaseDBActivity<ViewDataBinding>(R.layout.activity_login) {
                     }
                 })
             }
+
             it.setOnCompletionListener {
                 it.start()
                 it.isLooping = true
@@ -78,8 +90,6 @@ class LoginActivity : BaseDBActivity<ViewDataBinding>(R.layout.activity_login) {
         if (TextUtils.isEmpty(mFrom)) {
             return
         }
-
-
     }
 
     fun initListener() {
@@ -88,12 +98,7 @@ class LoginActivity : BaseDBActivity<ViewDataBinding>(R.layout.activity_login) {
                 ToastUtil.show("23333333")
                 return@setOnClickListener
             }*/
-            model.getAccountBean("13661610000","123456",et_veri.text.toString()).observe(this) { accountBean ->
-                Log.d("xiao111", " accountBean $accountBean")
-            }
-
-            ARouterConstant.PATH_MAIN.froward()
-
+            model.login("13661610000","123456",et_veri.text.toString())
         }
     }
 

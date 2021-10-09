@@ -1,6 +1,7 @@
 package com.ggh.kotlinmvvm
 
 import com.ggh.librarycommmon.CommonApp
+import com.ggh.maplibrary.util.GDMapLacationUtil
 
 
 class App :  CommonApp(){
@@ -13,8 +14,7 @@ class App :  CommonApp(){
 
     override fun onCreate() {
         super.onCreate()
-
-
+        GDMapLacationUtil.init(this)
     }
 
 }

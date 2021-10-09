@@ -4,8 +4,10 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
+import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
+import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -16,6 +18,7 @@ import com.ggh.model_cart.CartFragment
 import com.ggh.model_home.HomeFragment
 import com.ggh.model_message.MessageFragment
 import com.ggh.model_mine.MineFragment
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.mcl.kotlin_mvvm.base.BaseActivity
 import com.senseplay.collectsdk.model.account.AccountBean
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,6 +36,14 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         main_user_tab_group.apply {
             setViewPager(main_pager)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        window.sharedElementsUseOverlay = false
+
+        super.onCreate(savedInstanceState)
     }
 
     fun initFragment() {

@@ -40,6 +40,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.ggh.model_message.activity.ImagePlayActivity"/>
+        <activity android:name="com.ggh.model_message.activity.MapBottomSheetActivity"/>
+
 
         <!-- TODO///////////////////////////////////////////////极光推送/////////////////////////////////////////////////////// -->
         <!-- Since JCore2.0.0 Required SDK核心功能 -->

@@ -7,8 +7,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- * 公司：江苏刚刚好网络科技有限公司
- * 作者：Android 土三七
  * 文件名：RecyclerViewModel
  * 创建时间：2020/8/14
  * 功能描述：  列表通用ViewModel

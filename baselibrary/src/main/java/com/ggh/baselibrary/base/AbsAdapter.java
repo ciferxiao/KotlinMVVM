@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 公司：江苏刚刚好网络科技有限公司
- * 作者：Android 土三七
  * 文件名：AbsAdapter
  * 创建时间：2020/6/30
  * 功能描述： 添加一个描述

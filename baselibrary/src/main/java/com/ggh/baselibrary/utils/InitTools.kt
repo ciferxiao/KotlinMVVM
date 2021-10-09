@@ -51,7 +51,6 @@ class InitTools {
         manager?.init(BaseApp.instance)
 
         setSocket()
-
         BleAdapter.getAdapter(BaseApp.instance)
     }
 

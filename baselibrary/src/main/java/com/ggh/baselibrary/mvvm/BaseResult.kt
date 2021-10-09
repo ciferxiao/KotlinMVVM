@@ -1,9 +1,6 @@
 package com.ggh.baselibrary.mvvm
 
 /**
- * 公司：江苏刚刚好网络科技有限公司
- * 作者：Android 土三七
- * 文件名：
  * 创建时间：2020/8/20
  * 功能描述： 检查返回的结果
  *

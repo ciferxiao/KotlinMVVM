@@ -6,10 +6,7 @@ import android.app.ActivityManager.RunningTaskInfo
 import android.content.Context
 import android.graphics.PixelFormat
 import android.os.Build
-import android.view.Gravity
-import android.view.MotionEvent
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.view.WindowManager.LayoutParams
 
 class FloatingWindow {
@@ -85,6 +82,7 @@ class FloatingWindow {
         //相对于屏幕
         private var startX: Int? = 0
         private var startY: Int? = 0;
+
 
         //相对于view
         private var viewStartX: Int? = 0
